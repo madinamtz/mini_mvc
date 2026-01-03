@@ -175,5 +175,21 @@ class Product
         $stmt = $pdo->prepare("DELETE FROM produit WHERE id = ?");
         return $stmt->execute([$this->id]);
     }
+    // pour récuperer les produits selon leurs catégories
+
+    public static function getByCategory($categorieId)
+    {
+        $pdo = Database::getPDO();
+
+        $stmt = $pdo->prepare(
+            'SELECT * FROM produit WHERE categorie_id = :categorie_id'
+        );
+
+        $stmt->execute([
+            ':categorie_id' => $categorieId
+        ]);
+
+        return $stmt->fetchAll();
+    }
 }
 

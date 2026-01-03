@@ -11,6 +11,7 @@ class User
     private $id;
     private $nom;
     private $email;
+    private $password;
 
     // =====================
     // Getters / Setters
@@ -45,6 +46,17 @@ class User
     {
         $this->email = $email;
     }
+
+    public function getPassword()
+    {
+        return $this->password;
+    }
+
+    public function setPassword($password)
+    {
+        $this->password = $password;
+    }
+
 
     // =====================
     // Méthodes CRUD
@@ -94,9 +106,17 @@ class User
     public function save()
     {
         $pdo = Database::getPDO();
-        $stmt = $pdo->prepare("INSERT INTO user (nom, email) VALUES (?, ?)");
-        return $stmt->execute([$this->nom, $this->email]);
+        $stmt = $pdo->prepare(
+            "INSERT INTO user (nom, email, password) VALUES (?, ?, ?)"
+        );
+
+        return $stmt->execute([
+            $this->nom,
+            $this->email,
+            $this->password
+        ]);
     }
+
 
     /**
      * Met à jour les informations d’un utilisateur existant
@@ -119,4 +139,6 @@ class User
         $stmt = $pdo->prepare("DELETE FROM user WHERE id = ?");
         return $stmt->execute([$this->id]);
     }
+    
+    
 }

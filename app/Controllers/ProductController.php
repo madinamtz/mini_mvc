@@ -14,8 +14,14 @@ final class ProductController extends Controller
 {
     public function listProducts(): void
     {
-        // Récupère tous les produits
-        $products = Product::getAll();
+        // Récupère les produits par catégorie
+        $categoryId = $_GET['category'] ?? null;
+
+        if ($categoryId) {
+            $products = Product::getByCategory($categoryId);
+        } else {
+            $products = Product::getAll();
+        }
         
         // Affiche la liste des produits
         $this->render('product/list-products', params: [
