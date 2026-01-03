@@ -10,110 +10,183 @@
 
 main {
     margin-top: 40px;
+    margin: 0;
+    flex: 1 0 auto; 
+    position: relative;
+}
+
+html, body {
+        min-height: 100vh;
 }
 
 body {
     font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
 }
 
-.header {
+.site-header {
+    border-bottom: 2px solid #000;
+    background: #fff;
+}
+
+.header-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px 20px;
     display: flex;
     justify-content: space-between;
-    padding: 20px 40px;
-    border-bottom: 1px solid #ccc;
+    align-items: center;
 }
 
-.header-left {
+.header-left,
+.header-right {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 25px;
 }
 
 .logo {
-    font-size: 24px;
-    font-weight: bold;
+    height: 60px;
+    width: auto;
 }
 
-.logo span {
-    font-size: 12px;
-    display: block;
-}
-
-.header-right {
+/* Liens du header */
+.header-link {
     display: flex;
-    gap: 30px;
+    align-items: center;
+    gap: 6px;
+    color: #000;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
 }
 
-.home {
-    display: flex;
-    padding: 60px;
-}
-
-.home-left {
-    width: 50%;
-}
-
-.home-left h1 {
-    font-size: 64px;
-    margin-bottom: 30px;
-}
-
-.home-left p {
-    max-width: 500px;
-    margin-bottom: 40px;
-    text-align: justify;
-    line-height: 1.2;
-}
-
-.home-products img {
-    margin-right: 20px;
-    width: 200px;
-    height: auto;
-}
-
-.home-right {
-    display: flex;
-    gap: 20px;
-}
-
-.home-right img {
-    width: 800px;
-    height: 650px;
-    align: right;
-}
-
+/* menus burger */
 .dropdown {
     position: relative;
 }
 
+.dropdown > span {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.header-link,
+.dropdown > span {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.1;
+}
+
+
 .dropdown-menu {
     display: none;
     position: absolute;
-    top: 100%;
+    top: 120%;
     left: 0;
-    background: white;
-    color: #333;
+    background: #fff;
+    border: 1px solid #000;
     list-style: none;
-    margin: 0;
-    padding: 8px 10px;
-    min-width: 220px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-    border-radius: 4px;
+    min-width: 200px;
+    padding: 8px 0;
     z-index: 1000;
-    border: 1px solid #ccc;
 }
 
 .dropdown-menu li {
-    padding: 10px 20px;
+    padding: 10px 18px;
+}
+
+.dropdown-menu li a {
+    color: #000;
+    text-decoration: none;
 }
 
 .dropdown-menu li:hover {
-    background-color: #f2f2f2;
+    background: #f2f2f2;
 }
 
 .dropdown:hover .dropdown-menu {
     display: block;
 }
+
+/* page d'accueil */
+.home {
+    display: flex;
+    gap: 10px;
+    padding: 10px 10px 10px 100px;
+    align-items: stretch;
+}
+
+.home-left {
+    position: relative;
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    padding-right: 0;
+}
+
+.home::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: calc(45% + 100px + 10px); 
+    width: 2px;
+    background-color: #000;
+}
+
+
+
+.home-left h1 {
+    margin-top: 40px;
+    font-size: 72px;
+    font-weight: 400;
+    line-height: 1.05;
+    margin-bottom: 40px;
+}
+
+.home-left h1 em {
+    font-style: italic;
+    font-weight: 300;
+}
+
+.home-left p {
+    max-width: 520px;
+    font-size: 16px;
+    line-height: 1.7;
+    text-align: justify;
+    margin-bottom: auto;
+}
+
+
+.home-products {
+    display: flex;
+    gap: 80px;
+    align-items: center;
+    margin-top: 40px;
+
+}
+
+.home-products img {
+    width: 240px;
+    height: auto;
+}
+
+.home-right {
+    width: 55%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.home-right img {
+    width: 100%;
+    max-width: 700px;
+    height: auto;
+}
+
 
 .menu-icon,
 .account {
@@ -122,13 +195,14 @@ body {
 }
 
 .footer {
-    margin-top: auto;
-    padding: 20px 0;
-    background-color: #343a40;
-    color: white;
-    text-align: center;
-    font-size: 14px;
-}
+        flex-shrink: 0;
+        padding: 20px 0;
+        background-color: #fff;
+        color: #000;
+        text-align: center;
+        font-size: 14px;
+        border-top: 2px solid #000;
+    }
 
 </style>
 
@@ -152,111 +226,64 @@ $isOrders = (strpos($currentPath, '/orders') === 0);
 $user_id = $_GET['user_id'] ?? 1; // Par défaut user_id = 1 pour la démo
 ?>
 
-<header>
-    <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px;">
-        <!-- Logo/Titre -->
-        <h1 style="margin: 0; font-size: 24px;">
-            <a href="/" style="color: white; text-decoration: none;">Mini MVC</a>
-        </h1>
-        
-        <nav>
-            <ul style="list-style: none; margin: 0; padding: 0; display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
-                <li>
-                    <li class="dropdown">
-                        <span style="cursor:pointer; padding: 8px 15px;">☰</span>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a href="/products?category=2">Pulls & sweat-shirts</a>
-                            </li>
-                            <li>
-                                <a href="/products?category=1">T-shirts</a>
-                            </li>
-                            <li>
-                                <a href="/products?category=3">Bas & pantalons</a>
-                            </li>
-                            <li>
-                                <a href="/products?category=4">Chaussures</a>
-                            </li>
-                        </ul>
-                    </li>
+<header class="site-header">
+    <div class="header-inner">
 
-                    <a href="/" 
-                       style="color: <?= $isHome ? '#000000' : 'black' ?>; 
-                              text-decoration: none; 
-                              padding: 8px 15px; 
-                              border-radius: 4px;
-                              display: inline-block;
-                              transition: background-color 0.3s;"
-                       onmouseover="this.style.backgroundColor='rgba(255,255,255,0.1)'"
-                       onmouseout="this.style.backgroundColor='transparent'">
-                        🏠 Accueil
-                    </a>
-                </li>
-                <li>
-                    <a href="/products/create" 
-                       style="color: <?= $isProductsCreate ? '#000000' : 'black' ?>; 
-                              text-decoration: none; 
-                              padding: 8px 15px; 
-                              border-radius: 4px;
-                              display: inline-block;
-                              transition: background-color 0.3s;"
-                       onmouseover="this.style.backgroundColor='rgba(255,255,255,0.1)'"
-                       onmouseout="this.style.backgroundColor='transparent'">
-                        ➕ Ajouter un produit
-                    </a>
-                </li>
-                <!-- <li>
-                    <a href="/users/create" 
-                       style="color: <?= $isUsersCreate ? '#000000' : 'black' ?>; 
-                              text-decoration: none; 
-                              padding: 8px 15px; 
-                              border-radius: 4px;
-                              display: inline-block;
-                              transition: background-color 0.3s;"
-                       onmouseover="this.style.backgroundColor='rgba(255,255,255,0.1)'"
-                       onmouseout="this.style.backgroundColor='transparent'">
-                        👤 Ajouter un utilisateur
-                    </a>
-                </li> -->
-                <li>
-                    <a href="/cart?user_id=<?= $user_id ?>" 
-                       style="color: <?= $isCart ? '#000000' : 'black' ?>; 
-                              text-decoration: none; 
-                              padding: 8px 15px; 
-                              border-radius: 4px;
-                              display: inline-block;
-                              transition: background-color 0.3s;
-                              background-color: <?= $isCart ? 'rgba(255,255,255,0.1)' : 'transparent' ?>;
-                              font-weight: <?= $isCart ? 'bold' : 'normal' ?>;"
-                       onmouseover="this.style.backgroundColor='rgba(255,255,255,0.1)'"
-                       onmouseout="this.style.backgroundColor='<?= $isCart ? 'rgba(255,255,255,0.1)' : 'transparent' ?>'">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
-                            <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 
-                            1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 
-                            12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 
-                            4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 
-                            4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
-                        </svg> Panier
-                    </a>
-                </li>
-                <li class="dropdown">
-                    <span style="cursor:pointer; padding: 8px 15px;">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
-                    <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 
-                    4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 
-                    10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z"/>
-                    </svg> Compte</span>
-                    <ul class="dropdown-menu">
-                        <li><a href="/login">Connexion / Inscription</a></li>
-                        <li><a href="/orders?user_id=<?= $user_id ?>">Commandes</a></li>
-                        <li>Déconnexion</li>
-                    </ul>
-                </li>
+        <div class="header-left">
+            <a href="/">
+                <img class="logo" 
+                     src="https://i.pinimg.com/736x/1c/8d/da/1c8dda0d0e6284cc9c451064f4f7e8ef.jpg" 
+                     alt="Fallen Angel">
+            </a>
 
-            </ul>
-        </nav>
+            <!-- Menu burger -->
+            <div class="dropdown">
+                <span>☰</span>
+                <ul class="dropdown-menu">
+                    <li><a href="/products?category=2">Pulls & sweat-shirts</a></li>
+                    <li><a href="/products?category=1">T-shirts</a></li>
+                    <li><a href="/products?category=3">Bas & pantalons</a></li>
+                    <li><a href="/products?category=4">Chaussures</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="header-right">
+
+            <!-- Panier -->
+            <a href="/cart?user_id=<?= $user_id ?>" class="header-link">
+                panier
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 
+                    1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 
+                    8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 
+                    3.607 1.61 2H.5a.5.5 0 0 1-.5-.5"/>
+                </svg>
+            </a>
+
+            <!-- Compte -->
+            <div class="dropdown">
+                <span class="header-link">
+                    compte
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M8 8a3 3 0 1 0 0-6 3 
+                        3 0 0 0 0 6m4 8c0 
+                        1-1 1-1 1H3s-1 
+                        0-1-1 1-4 6-4 
+                        6 3 6 4"/>
+                    </svg>
+                </span>
+                <ul class="dropdown-menu">
+                    <li><a href="/login">Connexion / Inscription</a></li>
+                    <li><a href="/orders?user_id=<?= $user_id ?>">Commandes</a></li>
+                    <li><a href="/logout">Déconnexion</a></li>
+                </ul>
+            </div>
+
+        </div>
     </div>
 </header>
+
 <!-- Zone de contenu principal -->
 <main>
     <!-- Insère le contenu rendu de la vue -->

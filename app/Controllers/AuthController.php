@@ -18,11 +18,19 @@ class AuthController extends Controller
         $email = $_POST['email'];
         $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
-        User::create($nom, $email, $password);
+        // Création d'un objet User
+        $user = new User();
+        $user->setNom($nom);
+        $user->setEmail($email);
+        $user->setPassword($password);
+
+        // Enregistrement en base
+        $user->save();
 
         header('Location: /login');
         exit;
     }
+
 
     public function login()
     {

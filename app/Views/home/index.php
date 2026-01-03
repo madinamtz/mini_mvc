@@ -4,15 +4,16 @@
         <h1>2025 — <em>WINTER</em><br>COLLECTION</h1>
 
         <p>
-            <br> Une collection pensée pour sublimer chaque
-            <br> style, mêlant <strong>tendances actuelles</strong> et <strong>pièces
-            <br> essentielles.</strong> Des vêtements sélectionnés
-            <br> pour leur qualité, leur confort et leur
-            <br> personnalité, afin d’accompagner chaque
-            <br> moment du quotidien. Un univers où
-            <br> s’exprimer librement à travers la mode
-            <br> devient simple et naturel.
+            Une collection pensée pour sublimer chaque style,
+            mêlant <strong>tendances actuelles</strong> et
+            <strong>pièces essentielles</strong>.
+            Des vêtements sélectionnés pour leur qualité,
+            leur confort et leur personnalité, afin
+            d’accompagner chaque moment du quotidien.
+            Un univers où s’exprimer librement à travers
+            la mode devient simple et naturel.
         </p>
+
 
         <div class="home-products">
             <img src="https://i.pinimg.com/1200x/87/b6/f7/87b6f72ee9774fc6d48ad325bbd31cf5.jpg" alt="sac">
