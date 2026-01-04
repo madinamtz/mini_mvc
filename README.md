@@ -67,7 +67,7 @@ fallenangel
 
 ### 3. Importer le schéma SQL
 
-Utilisez l’onglet Importer pour ajouter le fichier sql fourni (database/mini_mvc.sql).
+Utilisez l’onglet Importer pour ajouter le fichier sql fourni (database/mini_mvc.sql).  
 Sinon, créez les tables via phpMyAdmin en vous basant sur vos modèles dans app/models/.
 
 ### 4. Vérifier la configuration PHP
