@@ -242,6 +242,7 @@ Produits des commandes précédentes
 - Détail produit : fiche complète avec image, description, prix
 - Ajout au panier : possible qu'on soit connecté ou non
 - Stock : indicateur simple (non dynamique dans cette version)
+- Gestion du stock des produits : pour les admins seulement
 
 ### 🛒 Panier & Commandes
 
@@ -251,7 +252,7 @@ Produits des commandes précédentes
 
 ### 🔐 Authentification
 
-- Inscription : création de compte avec validation minimale
+- Inscription : création de compte avec validation minimale et demande de clé privée pour une création d'admin
 - Connexion : système sécurisé avec mots de passe hashés
 - Profil : modification des informations personnelles
 - Sécurité : sessions PHP et vérification des routes protégées
@@ -269,10 +270,9 @@ Le site intègre plusieurs mesures de sécurité fondamentales :
 
 Fonctionnalités potentielles à ajouter pour améliorer le site :
 
-* Panel d'administration  
-* Gestion des stocks en temps réel  
-* Filtre de produits  
-* Système de notation des produits  
+* Panel d'administration    
+* Système de notation des produits 
+* Système de paiement 
 
 ---
 
