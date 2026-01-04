@@ -141,6 +141,89 @@ VALUES ('jean@test.com', 'jean123'),
 ## 📁 Architecture du projet
 
 ```bash
+mini_mvc/
+│
+├── app/                          # Dossier principal de l'application
+│   ├── config.ini                # Configuration de l'application
+│   ├── config.php                # Configuration PHP
+│   │
+│   ├── Controllers/              # Contrôleurs
+│   │   ├── AuthController.php
+│   │   ├── CartController.php
+│   │   ├── HomeController.php
+│   │   ├── OrderController.php
+│   │   ├── ProductController.php
+│   │   ├── Produit.php
+│   │   └── StockController.php
+│   │
+│   ├── Core/                     # Classes de base du framework
+│   │   ├── Auth.php              # Gestion de l'authentification
+│   │   ├── Controller.php        # Contrôleur de base
+│   │   ├── Database.php          # Connexion et gestion BDD
+│   │   ├── Model.php             # Modèle de base
+│   │   └── Router.php            # Système de routage
+│   │
+│   ├── Models/                   # Modèles
+│   │   ├── Cart.php
+│   │   ├── Category.php
+│   │   ├── Order.php
+│   │   ├── Product.php
+│   │   ├── Produit.php
+│   │   └── User.php
+│   │
+│   └── Views/                    # Vues (templates HTML/PHP)
+│       ├── layout.php            # Template principal
+│       │
+│       ├── auth/                 # Vues d'authentification
+│       │   ├── login.php
+│       │   ├── login-success.php
+│       │   └── register-success.php
+│       │
+│       ├── cart/                 # Vues du panier
+│       │   └── index.php
+│       │
+│       ├── home/                 # Vues de la page d'accueil
+│       │   ├── create-user.php
+│       │   ├── index.php
+│       │   └── users.php
+│       │
+│       ├── order/                # Vues des commandes
+│       │   ├── list.php
+│       │   ├── not-found.php
+│       │   └── show.php
+│       │
+│       ├── product/              # Vues des produits
+│       │   ├── create-product.php
+│       │   ├── list-products.php
+│       │   └── show.php
+│       │
+│       └── stock/                # Vues de gestion du stock
+│           └── manage.php
+│
+├── database/                     # Base de données
+│   ├── migrations.sql            # Script de migration
+│   └── mini_mvc.sql              # Structure complète de la BDD
+│
+├── docs/                         # Documentation
+│   ├── active-record.md          
+│   ├── GUIDE_PANIER.md           
+│   ├── PANIER_COMMANDES.md       
+│   ├── PRODUCT_CRUD.md           
+│   ├── README_INSTALL.md         
+│   ├── README_START.md           
+│   └── README_STRUCTURE.md       
+│
+├── public/                       # Point d'entrée web (document root)
+│   └── index.php                 # Front controller
+│
+├── vendor/                       
+│   ├── composer/                 
+│   └── autoload.php              
+│
+├── .gitignore                    
+├── composer.json                 
+├── composer.lock                 
+└── README.md                     # Documentation principale
 ```
 
 - **Controllers** : gèrent la logique et la communication entre modèles et vues
