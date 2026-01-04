@@ -88,8 +88,8 @@ DB_USERNAME = ""
 ; Mot de passe de la base de données
 DB_PASSWORD = ""
 ```
-⚠️ Les identifiants par défaut de MAMP :  
-Host : localhost | User : root | Password : root | Port MySQL : 8889 (si personnalisé)
+> ⚠️ Les identifiants par défaut de MAMP :  
+> Host : localhost | User : root | Password : root | Port MySQL : 8889 (si personnalisé)
 
 ## 🚀 Lancer le projet
 
@@ -122,7 +122,27 @@ Pour tester le site, vous pouvez utiliser ces comptes :
 
 | Email | Mot de passe | Rôle |
 |:--------------|:-------------|:--------------|
-| ```admin@test.com``` | ```admin123``` | Administrateur |
-| ```user@test.com``` | ```user123``` | Utilisateur |
+| ```jean@test.com``` | ```jean123``` | Client |
+| ```pierre@test.com``` | ```pierre123``` | Client |
 
-- Si ces comptes n’existent pas, ajoutez-les via phpMyAdmin ou SQL.
+> Si ces comptes n’existent pas, ajoutez-les via phpMyAdmin ou SQL.
+
+### Exemple SQL :
+
+```bash
+INSERT INTO users (email, password)
+VALUES ('jean@test.com', 'jean123'),
+       ('pierre@test.com', 'pierre123');
+```
+
+> (Remplacez par des mots de passe hashés si nécessaire avec password_hash().)
+
+## 📁 Architecture du projet
+
+```bash
+```
+
+## 🗃️ Structure de la Base de Données
+
+```bash
+```
