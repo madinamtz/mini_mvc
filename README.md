@@ -120,7 +120,8 @@ http://localhost:8000
 
 Pour tester le site, vous pouvez utiliser ces comptes :
 
-| :Email: | :Mot de passe: | :Rôle: |
+|:--------------:|:-------------:|:--------------:|
+| Email | Mot de passe | Rôle |
 |:--------------|:-------------|:--------------|
 | ```admin@test.com``` | ```admin123``` | Administrateur |
 | ```user@test.com``` | ```user123``` | Utilisateur |
