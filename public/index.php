@@ -1,6 +1,8 @@
 <?php
 declare(strict_types=1);
 
+session_start();
+
 require dirname(path: __DIR__) . '/vendor/autoload.php';
 
 use Mini\Core\Router;
@@ -29,10 +31,10 @@ $routes = [
     ['POST', '/orders/create', [Mini\Controllers\OrderController::class, 'create']],
     ['POST', '/orders/update-status', [Mini\Controllers\OrderController::class, 'updateStatus']],
     // routes pour la page d'authentification 
-    ['GET', '/login', [Mini\Controllers\AuthController::class, 'showLogin']],
-    ['POST', '/login', [Mini\Controllers\AuthController::class, 'login']],
+    ['GET',  '/login',    [Mini\Controllers\AuthController::class, 'show']],
+    ['POST', '/login',    [Mini\Controllers\AuthController::class, 'login']],
     ['POST', '/register', [Mini\Controllers\AuthController::class, 'register']],
-    ['GET', '/logout', [Mini\Controllers\AuthController::class, 'logout']],
+    ['GET',  '/logout',   [Mini\Controllers\AuthController::class, 'logout']],
 ];
 // Bootstrap du router
 $router = new Router($routes);

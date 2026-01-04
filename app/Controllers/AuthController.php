@@ -1,54 +1,82 @@
-<?php
+<?php 
 
 namespace Mini\Controllers;
 
-use Mini\Core\Controller; // ← C’est ici qu’on importe ton Controller existant
 use Mini\Models\User;
 
-class AuthController extends Controller
+class AuthController
 {
-    public function showLogin()
+    public function show()
     {
-        $this->render('auth/login');
+        ob_start();
+        require __DIR__ . '/../Views/auth/login.php';
+        $content = ob_get_clean();
+
+        $title = 'Connexion / Inscription';
+        require __DIR__ . '/../Views/layout.php';
     }
 
     public function register()
     {
-        $nom = $_POST['nom'];
-        $email = $_POST['email'];
-        $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+        if (
+            empty($_POST['nom']) ||
+            empty($_POST['email']) ||
+            empty($_POST['password'])
+        ) {
+            die('Champs manquants');
+        }
 
-        // Création d'un objet User
         $user = new User();
-        $user->setNom($nom);
-        $user->setEmail($email);
-        $user->setPassword($password);
-
-        // Enregistrement en base
+        $user->setNom($_POST['nom']);
+        $user->setEmail($_POST['email']);
+        $user->setPassword($_POST['password']);
         $user->save();
 
-        header('Location: /login');
-        exit;
-    }
+        $_SESSION['user'] = [
+            'nom' => $_POST['nom'],
+            'email' => $_POST['email']
+        ];
 
+        ob_start();
+        require __DIR__ . '/../Views/auth/register-success.php';
+        $content = ob_get_clean();
+
+        $title = 'Inscription validée';
+        require __DIR__ . '/../Views/layout.php';
+    }
 
     public function login()
     {
-        $user = User::findByEmail($_POST['email']);
-
-        if ($user && password_verify($_POST['password'], $user['password'])) {
-            $_SESSION['user'] = $user;
-            header('Location: /');
-            exit;
+        if (empty($_POST['email']) || empty($_POST['password'])) {
+            die('Champs manquants');
         }
 
-        header('Location: /login');
-        exit;
+        $user = User::findByEmail($_POST['email']);
+
+        if (!$user || !password_verify($_POST['password'], $user['password'])) {
+            die('Identifiants invalides');
+        }
+
+        $_SESSION['user'] = [
+            'id'    => $user['id'],
+            'nom'   => $user['nom'],
+            'email' => $user['email']
+        ];
+
+        ob_start();
+        require __DIR__ . '/../Views/auth/login-success.php';
+        $content = ob_get_clean();
+
+        $title = 'Connexion validée';
+        require __DIR__ . '/../Views/layout.php';
     }
 
     public function logout()
     {
         session_destroy();
         header('Location: /');
+        exit;
     }
 }
+
+?>

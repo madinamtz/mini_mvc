@@ -54,8 +54,9 @@ class User
 
     public function setPassword($password)
     {
-        $this->password = $password;
+        $this->password = password_hash($password, PASSWORD_DEFAULT);
     }
+
 
 
     // =====================
@@ -109,13 +110,13 @@ class User
         $stmt = $pdo->prepare(
             "INSERT INTO user (nom, email, password) VALUES (?, ?, ?)"
         );
-
         return $stmt->execute([
             $this->nom,
             $this->email,
             $this->password
         ]);
     }
+
 
 
     /**
