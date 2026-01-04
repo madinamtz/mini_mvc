@@ -115,3 +115,19 @@ Puis ouvrez :
 ```bash
 http://localhost:8000
 ```
+
+## 👤 Comptes de test
+
+Pour tester le site, vous pouvez utiliser ces comptes :
+
+### 🛠 Admin
+
+Email : admin@test.com
+Mot de passe : admin123
+
+### 👤 Utilisateur simple
+
+Email : user@test.com
+Mot de passe : user123
+
+- Si ces comptes n’existent pas, ajoutez-les via phpMyAdmin ou SQL.
