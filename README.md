@@ -126,7 +126,7 @@ Pour tester le site, vous pouvez utiliser ces comptes :
 | ```jean@test.com``` | ```jean123``` | Client |
 | ```pierre@test.com``` | ```pierre123``` | Client |
 
-> Si ces comptes n’existent pas, ajoutez-les via phpMyAdmin ou SQL, ou alors créez un compte directement sur le site, vous pourrez le réutiliser pour vous connecter.
+> Si vous n'arrivez pas à vous connecter, ajoutez-les via phpMyAdmin ou SQL, ou alors créez un compte directement sur le site, vous pourrez le réutiliser pour vous connecter.
 
 ### Exemple SQL :
 
