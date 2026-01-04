@@ -201,7 +201,7 @@ Catégories de vêtements
 
 Historique de commandes de l'utilisateur
 
-```
+```bash
 - id (INT, AUTO_INCREMENT)
 - statut (ENUM('en_attente', 'validee', 'annulee'))
 - total (DECIMAL(10,2))
@@ -214,7 +214,7 @@ Historique de commandes de l'utilisateur
 
 Produits des commandes précédentes
 
-```bash
+```console
 - id (INT, AUTO_INCREMENT)
 - quantite (INT)
 - prix_unitaire (DECIMAL(10,2))
