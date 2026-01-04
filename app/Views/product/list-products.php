@@ -22,7 +22,7 @@
 
 .btn-add {
     padding: 10px 20px;
-    background-color: #000; /* noir comme le header */
+    background-color: #000;
     color: #fff;
     text-decoration: none;
     border-radius: 4px;
@@ -59,7 +59,7 @@
 .products-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-    gap: 30px; /* un peu plus d'espace */
+    gap: 30px;
 }
 
 .product-card {
@@ -99,7 +99,7 @@
     margin: 0 0 10px 0;
     font-size: 20px;
     color: #000;
-    min-height: 48px; /* uniformise la hauteur des titres */
+    min-height: 48px;
 }
 
 .product-description {
@@ -107,7 +107,7 @@
     font-size: 14px;
     color: #666;
     line-height: 1.5;
-    min-height: 50px; /* uniformise la hauteur des descriptions */
+    min-height: 50px;
 }
 
 .product-info {
@@ -122,7 +122,7 @@
 .product-price {
     font-size: 20px;
     font-weight: bold;
-    color: #28a745; /* vert comme les accents du site */
+    color: #28a745;
 }
 
 .product-stock {

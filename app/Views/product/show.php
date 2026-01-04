@@ -9,7 +9,6 @@
     color: #333;
 }
 
-/* Bloc vide */
 .product-empty {
     text-align: center;
     padding: 80px;
@@ -44,7 +43,6 @@
     opacity: 0.8;
 }
 
-/* Bloc principal */
 .product-main {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -135,7 +133,6 @@
     white-space: pre-wrap;
 }
 
-/* Formulaire */
 .product-form {
     margin-top: 20px;
     display: flex;
@@ -171,7 +168,6 @@
     opacity: 0.8;
 }
 
-/* Avertissement stock */
 .product-warning {
     padding: 15px;
     background-color: #f2f2f2;
@@ -181,7 +177,6 @@
     margin-top: 30px;
 }
 
-/* Footer */
 .product-footer {
     margin-top: 30px;
     padding-top: 20px;

@@ -9,7 +9,6 @@
     color: #333;
 }
 
-/* Container principal */
 .product-container {
     max-width: 800px;
     margin: 0 auto;
@@ -20,7 +19,6 @@
     box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
 
-/* Titres */
 .product-container h2 {
     text-align: center;
     font-size: 36px;
@@ -29,7 +27,6 @@
     margin-bottom: 30px;
 }
 
-/* Formulaire */
 .product-container form {
     display: flex;
     flex-direction: column;
@@ -67,7 +64,6 @@
     color: #666;
 }
 
-/* Messages */
 .product-container .message {
     padding: 12px 15px;
     margin-bottom: 20px;
@@ -88,7 +84,6 @@
     border-color: #f5c6cb;
 }
 
-/* Aperçu image */
 .product-container .image-preview {
     margin-top: 10px;
 }
@@ -101,7 +96,6 @@
     object-fit: contain;
 }
 
-/* Bouton principal */
 .product-container button {
     padding: 12px 0;
     background-color: #000;
@@ -118,7 +112,6 @@
     opacity: 0.8;
 }
 
-/* Liens bas de page */
 .product-container .links {
     margin-top: 25px;
     display: flex;
