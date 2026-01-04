@@ -268,11 +268,12 @@ Le site intègre plusieurs mesures de sécurité fondamentales :
 
 ## 📝 Évolutions Futures
 
-Fonctionnalités potentielles à ajouter pour améliorer le site :
+Fonctionnalités potentielles à ajouter pour améliorer le site et le code :
 
 * Panel d'administration    
 * Système de notation des produits 
 * Système de paiement 
+* CSS dans un fichier séparé dans public/css/style.css plutôt que directement dans le php
 
 ---
 
