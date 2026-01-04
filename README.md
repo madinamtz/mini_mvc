@@ -142,6 +142,10 @@ VALUES ('jean@test.com', 'jean123'),
 ```bash
 ```
 
+- **Controllers** : gèrent la logique et la communication entre modèles et vues
+- **Models** : gèrent les données et la connexion à la base
+- **Views** : affichent le contenu HTML à l’utilisateur
+
 ## 🗃️ Structure de la Base de Données
 
 ### Tables principales
