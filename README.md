@@ -268,7 +268,7 @@ Le site intègre plusieurs mesures de sécurité fondamentales :
 
 Fonctionnalités potentielles à ajouter pour améliorer le site :
 
- Panel d'administration. 
- Gestion des stocks en temps réel  
- Filtre de produits  
- Système de notation des produits  
+* Panel d'administration  
+* Gestion des stocks en temps réel  
+* Filtre de produits  
+* Système de notation des produits  
