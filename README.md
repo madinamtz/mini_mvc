@@ -3,8 +3,6 @@
 **Fallen Angel** est un site e‑commerce de vêtements tendances pour hommes et femmes, développé avec une architecture **MVC en PHP vanilla**.  
 Ce projet présente une structure claire de type MVC (Modèle–Vue–Contrôleur) pour faciliter l’apprentissage, l’extension et la maintenance du code.
 
----
-
 ## ⚙️ Fonctionnalités principales
 
 - Architecture MVC simplifiée
@@ -13,8 +11,6 @@ Ce projet présente une structure claire de type MVC (Modèle–Vue–Contrôleu
 - Pages produits
 - Structure prête à être étendue (ajout panier, administration…)
 - Intégration facile avec une base de données MySQL
-
----
 
 ## 🖥️ Démonstration
 
@@ -25,8 +21,6 @@ Ce README vous guidera étape par étape pour :
 3. Lancer le projet avec MAMP ou PHP
 4. Se connecter avec des comptes test
 
----
-
 ## 🛠️ Prérequis
 
 Avant de commencer, assurez‑vous d’avoir :
@@ -36,8 +30,6 @@ Avant de commencer, assurez‑vous d’avoir :
 ✔️ PHP 7.4 ou supérieur  
 ✔️ Git  
 ✔️ Un éditeur de code (Visual Studio Code recommandé)
-
----
 
 ## 📦 Installation du projet
 
