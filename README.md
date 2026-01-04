@@ -1,19 +1,41 @@
-# 🪽 Fallen Angel - E-commerce de vêtements
+# 🪽 Fallen Angel — E-commerce de vêtements
 
-**Fallen Angel** est un site e-commerce dédié aux vêtements tendances pour femmes.  
-Il permet de naviguer dans différentes catégories, de consulter des produits, de gérer un panier et de consulter ses commandes.  
-Ce projet est construit avec **PHP vanilla** en suivant une architecture **MVC (Modèle-Vue-Contrôleur)** simple, pour apprendre la structuration d’un site web.
+**Fallen Angel** est un site e‑commerce de vêtements tendances pour hommes et femmes, développé avec une architecture **MVC en PHP vanilla**.  
+Ce projet présente une structure claire de type MVC (Modèle–Vue–Contrôleur) pour faciliter l’apprentissage, l’extension et la maintenance du code.
 
 ---
 
-## 🛠 Prérequis
+## ⚙️ Fonctionnalités principales
 
-Avant de commencer, assurez-vous d'avoir :
+- Architecture MVC simplifiée
+- Routing de base
+- Connexion utilisateur
+- Pages produits
+- Structure prête à être étendue (ajout panier, administration…)
+- Intégration facile avec une base de données MySQL
 
-- [MAMP](https://www.mamp.info/) installé (Apache + MySQL)
-- phpMyAdmin pour gérer la base de données
-- PHP >= 7.4
-- Git (optionnel)
+---
+
+## 🖥️ Démonstration
+
+Ce README vous guidera étape par étape pour :
+
+1. Installer le projet localement
+2. Créer et configurer la base de données
+3. Lancer le projet avec MAMP ou PHP
+4. Se connecter avec des comptes test
+
+---
+
+## 🛠️ Prérequis
+
+Avant de commencer, assurez‑vous d’avoir :
+
+✔️ **MAMP** installé (Apache + MySQL)  
+✔️ **phpMyAdmin** pour gérer la base de données  
+✔️ PHP 7.4 ou supérieur
+✔️ Git
+✔️ Un éditeur de code (Visual Studio Code recommandé)
 
 ---
 
