@@ -35,6 +35,9 @@ $routes = [
     ['POST', '/login',    [Mini\Controllers\AuthController::class, 'login']],
     ['POST', '/register', [Mini\Controllers\AuthController::class, 'register']],
     ['GET',  '/logout',   [Mini\Controllers\AuthController::class, 'logout']],
+    // Routes pour la gestion du stock (admins seulement)
+    ['GET', '/stock/manage', [Mini\Controllers\StockController::class, 'manage']],
+    ['POST', '/stock/update', [Mini\Controllers\StockController::class, 'update']],
 ];
 // Bootstrap du router
 $router = new Router($routes);

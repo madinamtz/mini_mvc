@@ -72,7 +72,8 @@ class AuthController
         $_SESSION['user'] = [
             'id'    => $user['id'],
             'nom'   => $user['nom'],
-            'email' => $user['email']
+            'email' => $user['email'],
+            'role'  => $user['role']
         ];
 
         // vue de succès de connexion

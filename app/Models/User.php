@@ -12,6 +12,7 @@ class User
     private $nom;
     private $email;
     private $password;
+    private $role;
 
     // =====================
     // Getters & Setters
@@ -56,6 +57,17 @@ class User
     {
         $this->password = password_hash($password, PASSWORD_DEFAULT);
     }
+
+    public function getRole()
+    {
+        return $this->role;
+    }
+
+    public function setRole($role)
+    {
+        $this->role = $role;
+    }
+
 
     // =====================
     // Méthodes CRUD
@@ -106,21 +118,22 @@ class User
     {
         $pdo = Database::getPDO();
         $stmt = $pdo->prepare(
-            "INSERT INTO user (nom, email, password) VALUES (?, ?, ?)"
+            "INSERT INTO user (nom, email, password, role) VALUES (?, ?, ?, ?)"
         );
         $success = $stmt->execute([
             $this->nom,
             $this->email,
-            $this->password
+            $this->password,
+            $this->role ?? 'user' // rôle par défaut 'user'
         ]);
 
         if ($success) {
-            // récupère l'ID généré et le stocke
             $this->id = $pdo->lastInsertId();
         }
 
         return $success;
     }
+
 
     /**
      * Met à jour les informations d’un utilisateur existant
@@ -143,4 +156,5 @@ class User
         $stmt = $pdo->prepare("DELETE FROM user WHERE id = ?");
         return $stmt->execute([$this->id]);
     }
+
 }
