@@ -6,6 +6,9 @@ use Mini\Models\User;
 
 class AuthController
 {
+    // clé secrete pour créer un compte admin
+    private const ADMIN_SECRET_KEY = 'SECRET_ADMIN';
+
     // Affiche le formulaire de connexion / inscription
     
     public function show()
@@ -34,13 +37,22 @@ class AuthController
         $user->setNom($_POST['nom']);
         $user->setEmail($_POST['email']);
         $user->setPassword($_POST['password']);
+        // Définition du rôle
+        if (!empty($_POST['admin_key']) && $_POST['admin_key'] === self::ADMIN_SECRET_KEY) {
+            $user->setRole('admin');
+        } else {
+            $user->setRole('user');
+        }
+
         $user->save();
+
 
         // Stocke les info du user dans la session
         $_SESSION['user'] = [
             'id'    => $user->getId(),
             'nom'   => $_POST['nom'],
-            'email' => $_POST['email']
+            'email' => $_POST['email'],
+            'role'  => $user->getRole()
         ];
 
         ob_start();

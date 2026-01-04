@@ -1,16 +1,25 @@
 <?php
+
 namespace Mini\Controllers;
 
-use Mini\Core\Controller;
-use Mini\Core\Auth;
 use Mini\Models\Product;
 
-class StockController extends Controller
+class StockController
 {
+    // Vérifie si l'utilisateur est admin
+    private function checkAdmin()
+    {
+        if (!isset($_SESSION['user']) || ($_SESSION['user']['role'] ?? '') !== 'admin') {
+            header('HTTP/1.1 403 Forbidden');
+            echo "Accès refusé : vous n'êtes pas admin.";
+            exit;
+        }
+    }
+
+    // Page de gestion du stock
     public function manage()
     {
-        session_start();
-        Auth::checkAdmin(); // accès réservé aux admins
+        $this->checkAdmin();
 
         $products = Product::getAll();
 
@@ -20,27 +29,53 @@ class StockController extends Controller
         ]);
     }
 
+    // Mise à jour du stock
     public function update()
-    {
-        session_start();
-        Auth::checkAdmin();
+{
+    $this->checkAdmin();
 
-        $id = $_POST['product_id'] ?? null;
-        $quantity = $_POST['quantity'] ?? null;
+    $productId = $_POST['update_id'] ?? null;
 
-        if ($id !== null && $quantity !== null) {
-            $product = Product::findById($id);
-            if ($product) {
-                $newStock = max(0, $product['stock'] + intval($quantity));
+    if (!$productId || !isset($_POST['stock'][$productId]) || !is_numeric($_POST['stock'][$productId])) {
+        die('Données invalides');
+    }
 
-                $p = new Product();
-                $p->setId($id);
-                $p->setStock($newStock);
-                $p->update();
-            }
-        }
+    $newStock = (int)$_POST['stock'][$productId];
 
+    $product = Product::findById($productId);
+    if (!$product) {
+        die('Produit introuvable');
+    }
+
+    $p = new Product();
+    $p->setId($productId);
+    $p->setNom($product['nom']);
+    $p->setDescription($product['description']);
+    $p->setPrix($product['prix']);
+    $p->setStock($newStock);
+    $p->setImageUrl($product['image_url']);
+    $p->setCategorieId($product['categorie_id']);
+
+    if ($p->update()) {
         header('Location: /stock/manage');
         exit;
+    } else {
+        die('Erreur lors de la mise à jour du stock');
     }
+}
+
+
+    private function render(string $view, array $params = []): void
+{
+    extract($params); // transforme $params en variables locales pour la vue
+
+    // Capture le contenu de la vue
+    ob_start();
+    require __DIR__ . '/../Views/' . $view . '.php';
+    $content = ob_get_clean();
+
+    // Inclut le layout principal, qui utilisera $content
+    require __DIR__ . '/../Views/layout.php';
+}
+
 }

@@ -284,11 +284,18 @@ $user_id = $_GET['user_id'] ?? 1; // Par défaut user_id = 1 pour la démo
                                 Commandes
                             </a>
                         </li>
+
+                        <!-- Lien admin uniquement -->
+                        <?php if (!empty($_SESSION['user']['role']) && $_SESSION['user']['role'] === 'admin'): ?>
+                            <li><a href="/stock/manage">Gestion du stock</a></li>
+                        <?php endif; ?>
+
                         <li><a href="/logout">Déconnexion</a></li>
                     <?php else: ?>
                         <li><a href="/login">Connexion / Inscription</a></li>
                     <?php endif; ?>
                 </ul>
+
             </div>
 
 

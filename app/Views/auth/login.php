@@ -114,6 +114,7 @@
         <input type="text" name="nom" placeholder="Nom" required>
         <input type="email" name="email" placeholder="Email" required>
         <input type="password" name="password" placeholder="Mot de passe" required>
+        <input type="password" name="admin_key" placeholder="Clé admin (optionnel)">
         <button type="submit">Créer un compte</button>
     </form>
 </div>
