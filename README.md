@@ -33,7 +33,7 @@ Avant de commencer, assurez‑vous d’avoir :
 
 ✔️ **MAMP** installé (Apache + MySQL)  
 ✔️ **phpMyAdmin** pour gérer la base de données  
-✔️ PHP 7.4 ou supérieur
+✔️ PHP >= 7.4  
 ✔️ Git
 ✔️ Un éditeur de code (Visual Studio Code recommandé)
 
