@@ -264,7 +264,7 @@ Le site intègre plusieurs mesures de sécurité fondamentales :
 ✅ Validation des données : contrôles côté serveur pour formulaires  
 ✅ Sessions sécurisées : gestion propre des sessions PHP  
 
-📝 Évolutions Futures
+## 📝 Évolutions Futures
 
 Fonctionnalités potentielles à ajouter pour améliorer le site :
 
