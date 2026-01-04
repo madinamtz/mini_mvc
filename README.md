@@ -88,7 +88,7 @@ DB_USERNAME = ""
 ; Mot de passe de la base de données
 DB_PASSWORD = ""
 ```
-⚠️ Les identifiants par défaut de MAMP :
+⚠️ Les identifiants par défaut de MAMP :  
 Host : localhost | User : root | Password : root | Port MySQL : 8889 (si personnalisé)
 
 ## 🚀 Lancer le projet
