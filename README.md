@@ -214,7 +214,7 @@ Historique de commandes de l'utilisateur
 
 Produits des commandes précédentes
 
-```shell
+```SQL
 - id (INT, AUTO_INCREMENT)
 - quantite (INT)
 - prix_unitaire (DECIMAL(10,2))
