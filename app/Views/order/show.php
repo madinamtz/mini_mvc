@@ -175,6 +175,7 @@
     background-color: #dc3545;
 }
 
+/* footer */ 
 .order-footer {
     margin-top: 50px;
     text-align: center;
