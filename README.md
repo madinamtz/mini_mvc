@@ -226,3 +226,49 @@ Produits des commandes précédentes
 - commande_id (INT, FK)
 - product_id (INT, FK)
 ```
+
+## 🗂️ Fonctionnalités
+
+### 🏠 Page d'Accueil
+
+- Bannière principale avec images promotionnelles
+- Header avec deux menus dropdown pour accéder aux différentes catégories de vêtements et pour se connecter ou s'inscrire
+- Présentation rapide de Fallen Angel
+
+### 📦 Gestion des Produits
+
+- Liste des produits : affichage par catégories avec filtres simples
+- Détail produit : fiche complète avec image, description, prix
+- Ajout au panier : possible qu'on soit connecté ou non
+- Stock : indicateur simple (non dynamique dans cette version)
+
+### 🛒 Panier & Commandes
+
+- Panier : gestion des quantités, suppression d’articles, calcul du total
+- Validation : transfert du panier vers commande 
+- Historique : page de visualisation des commandes passées
+
+### 🔐 Authentification
+
+- Inscription : création de compte avec validation minimale
+- Connexion : système sécurisé avec mots de passe hashés
+- Profil : modification des informations personnelles
+- Sécurité : sessions PHP et vérification des routes protégées
+
+### 🔒 Sécurité
+
+Le site intègre plusieurs mesures de sécurité fondamentales :
+
+✅ Mots de passe hashés : utilisation de `password_hash()` et `password_verify()`  
+✅ Protection : `htmlspecialchars()` sur toutes les sorties utilisateur  
+✅ Validation des données : contrôles côté serveur pour formulaires  
+✅ Sessions sécurisées : gestion propre des sessions PHP  
+
+📝 Évolutions Futures
+
+Fonctionnalités potentielles à ajouter pour améliorer le site :
+
+ Panel d'administration
+ Gestion des stocks en temps réel
+ Filtre de produits
+ Système de notation des produits
