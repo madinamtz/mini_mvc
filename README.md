@@ -129,7 +129,7 @@ Pour tester le site, vous pouvez utiliser ces comptes :
 
 ### Exemple SQL :
 
-```bash
+```SQL
 INSERT INTO users (email, password)
 VALUES ('jean@test.com', 'jean123'),
        ('pierre@test.com', 'pierre123');
@@ -150,7 +150,7 @@ VALUES ('jean@test.com', 'jean123'),
 
 Gestion des utilisateurs
 
-```bash
+```SQL
 - id (INT, AUTO_INCREMENT)
 - prenom (VARCHAR (255))
 - nom (VARCHAR(255))
@@ -162,7 +162,7 @@ Gestion des utilisateurs
 
 Produits disponibles
 
-```bash
+```SQL
 - id (INT, AUTO_INCREMENT)
 - nom (VARCHAR(150))
 - description (TEXT)
@@ -176,7 +176,7 @@ Produits disponibles
 
 Panier de l'utilisateur
 
-```bash
+```SQL
 - id (INT, AUTO_INCREMENT)
 - quantite (INT)
 - created_at (TIMESTAMP)
@@ -189,7 +189,7 @@ Panier de l'utilisateur
 
 Catégories de vêtements
 
-```bash
+```SQL
 - id (INT, AUTO_INCREMENT)
 - nom (VARCHAR(150))
 - description (TEXT)
@@ -201,7 +201,7 @@ Catégories de vêtements
 
 Historique de commandes de l'utilisateur
 
-```bash
+```SQL
 - id (INT, AUTO_INCREMENT)
 - statut (ENUM('en_attente', 'validee', 'annulee'))
 - total (DECIMAL(10,2))
