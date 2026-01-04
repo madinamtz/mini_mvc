@@ -144,7 +144,81 @@ VALUES ('jean@test.com', 'jean123'),
 
 ## 🗃️ Structure de la Base de Données
 
-### Tables principales 
+### Tables principales
+
+**user**
+
+Gestion des utilisateurs
 
 ```bash
+- id (INT, AUTO_INCREMENT)
+- prenom (VARCHAR (255))
+- nom (VARCHAR(255))
+- email (VARCHAR(255))
+- password (VARCHAR(255), hashé)
+```
+
+**produit**
+
+Produits disponibles
+
+```bash
+- id (INT, AUTO_INCREMENT)
+- nom (VARCHAR(150))
+- description (TEXT)
+- prix (DECIMAL(10,2))
+- stock (INT)
+- image_url (TEXT)
+- categorie_id (INT, FK)
+```
+
+**panier**
+
+Panier de l'utilisateur
+
+```bash
+- id (INT, AUTO_INCREMENT)
+- quantite (INT)
+- created_at (TIMESTAMP)
+- updated_at (TIMESTAMP)
+- user_id (INT, FK)
+- product_id (INT, FK)
+```
+
+**categorie**
+
+Catégories de vêtements
+
+```bash
+- id (INT, AUTO_INCREMENT)
+- nom (VARCHAR(150))
+- description (TEXT)
+- created_at (TIMESTAMP)
+- updated_at (TIMESTAMP)
+```
+
+**commande**
+
+Historique de commandes de l'utilisateur
+
+```bash
+- id (INT, AUTO_INCREMENT)
+- statut (ENUM('en_attente', 'validee', 'annulee'))
+- total (DECIMAL(10,2))
+- created_at (TIMESTAMP)
+- updated_at (TIMESTAMP)
+- user_id (INT? FK)
+```
+
+**commande_produit**
+
+Produits des commandes précédentes
+
+```bash
+- id (INT, AUTO_INCREMENT)
+- quantite (INT)
+- prix_unitaire (DECIMAL(10,2))
+- created_at (TIMESTAMP)
+- commande_id (INT, FK)
+- product_id (INT, FK)
 ```
