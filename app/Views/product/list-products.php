@@ -211,6 +211,66 @@
     color: #b0b0b0ff;
 }
 
+/* style pour les filtres */
+/* =====================
+   Filtres produits
+===================== */
+
+.filters-form {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+    padding: 15px 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    align-items: center;
+}
+
+.filters-form select {
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    background-color: #fff;
+    color: #000;
+    min-width: 180px;
+    cursor: pointer;
+}
+
+.filters-form select:focus {
+    outline: none;
+    border-color: #000;
+}
+
+.filters-form button {
+    padding: 9px 18px;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.filters-form button:hover {
+    opacity: 0.85;
+}
+
+.filters-form a {
+    font-size: 14px;
+    color: #666;
+    text-decoration: none;
+    margin-left: auto;
+}
+
+.filters-form a:hover {
+    color: #000;
+    text-decoration: underline;
+}
+
 </style>
 
 <!-- Liste des produits -->
@@ -219,7 +279,41 @@
         <h2>Liste des produits</h2>
         <a href="/products/create" class="btn-add"><strong>+</strong> Ajouter un produit</a>
     </div>
-    
+
+    <!-- Filtres -->
+    <form method="GET" action="/products" class="filters-form">
+        
+        <!-- Filtre catégorie -->
+        <select name="category">
+            <option value="">Toutes les catégories</option>
+            <?php foreach ($categories as $cat): ?>
+                <option value="<?= $cat['id'] ?>"
+                    <?= (isset($_GET['category']) && $_GET['category'] == $cat['id']) ? 'selected' : '' ?>>
+                    <?= htmlspecialchars($cat['nom']) ?>
+                </option>
+            <?php endforeach; ?>
+        </select>
+
+        <!-- Tri prix -->
+        <select name="order_price">
+            <option value="">Trier par prix</option>
+            <option value="asc" <?= ($_GET['order_price'] ?? '') === 'asc' ? 'selected' : '' ?>>Prix croissant</option>
+            <option value="desc" <?= ($_GET['order_price'] ?? '') === 'desc' ? 'selected' : '' ?>>Prix décroissant</option>
+        </select>
+
+        <!-- Tri stock -->
+        <select name="order_stock">
+            <option value="">Trier par stock</option>
+            <option value="asc" <?= ($_GET['order_stock'] ?? '') === 'asc' ? 'selected' : '' ?>>Stock croissant</option>
+            <option value="desc" <?= ($_GET['order_stock'] ?? '') === 'desc' ? 'selected' : '' ?>>Stock décroissant</option>
+        </select>
+
+        <button type="submit">Filtrer</button>
+
+        <a href="/products" style="align-self:center;">Réinitialiser</a>
+    </form>
+
+
     <?php if (empty($products)): ?>
         <div class="no-products">
             <p>Aucun produit disponible.</p>

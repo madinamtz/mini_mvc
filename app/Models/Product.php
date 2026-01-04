@@ -191,5 +191,52 @@ class Product
 
         return $stmt->fetchAll();
     }
+
+    public static function getFilteredProducts(
+    ?string $categoryId,
+    ?string $orderPrice,
+    ?string $orderStock
+    ): array {
+        // ✅ même connexion PDO que le reste du modèle
+        $pdo = Database::getPDO();
+
+        $sql = "
+            SELECT 
+                p.*,
+                c.nom AS categorie_nom
+            FROM produit p
+            LEFT JOIN categorie c ON p.categorie_id = c.id
+            WHERE 1=1
+        ";
+
+        $params = [];
+
+        // Filtre catégorie
+        if (!empty($categoryId)) {
+            $sql .= " AND p.categorie_id = :category";
+            $params['category'] = (int)$categoryId;
+        }
+
+        // ORDER BY dynamique
+        $order = [];
+
+        if (in_array($orderPrice, ['asc', 'desc'], true)) {
+            $order[] = "p.prix " . strtoupper($orderPrice);
+        }
+
+        if (in_array($orderStock, ['asc', 'desc'], true)) {
+            $order[] = "p.stock " . strtoupper($orderStock);
+        }
+
+        if (!empty($order)) {
+            $sql .= " ORDER BY " . implode(', ', $order);
+        }
+
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute($params);
+
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
 }
 

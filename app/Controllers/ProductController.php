@@ -14,21 +14,28 @@ final class ProductController extends Controller
 {
     public function listProducts(): void
     {
-        // Récupère les produits par catégorie
+        // Filtres depuis l'URL
         $categoryId = $_GET['category'] ?? null;
+        $orderPrice = $_GET['order_price'] ?? null;
+        $orderStock = $_GET['order_stock'] ?? null;
 
-        if ($categoryId) {
-            $products = Product::getByCategory($categoryId);
-        } else {
-            $products = Product::getAll();
-        }
-        
-        // Affiche la liste des produits
+        // Produits filtrés
+        $products = Product::getFilteredProducts(
+            $categoryId,
+            $orderPrice,
+            $orderStock
+        );
+
+        // Catégories pour le filtre
+        $categories = Category::getAll();
+
         $this->render('product/list-products', params: [
             'title' => 'Liste des produits',
-            'products' => $products
+            'products' => $products,
+            'categories' => $categories
         ]);
     }
+
 
     /**
      * Affiche les détails d'un produit
