@@ -272,3 +272,15 @@ Fonctionnalités potentielles à ajouter pour améliorer le site :
 * Gestion des stocks en temps réel  
 * Filtre de produits  
 * Système de notation des produits  
+
+---
+
+## 📖 Licence
+
+Ce projet a été développé dans le cadre d'un **projet scolaire en études supérieures**.  
+Il est destiné uniquement à des fins pédagogiques et d’apprentissage. Toute utilisation commerciale ou redistribution n’est pas autorisée.
+
+## 🎨 Crédits
+
+- **Développement** : madinamtz
+- **Inspiration & tutoriels** : GitHub / OpenClassrooms / Documentation PHP officielle / Youtube
