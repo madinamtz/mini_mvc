@@ -1,4 +1,4 @@
-# 🪽 Fallen Angel — E-commerce de vêtements
+# 🪽 Fallen Angel — boutique de vêtements en ligne
 
 **Fallen Angel** est un site e‑commerce de vêtements tendances pour hommes et femmes, développé avec une architecture **MVC en PHP vanilla**.  
 Ce projet présente une structure claire de type MVC (Modèle–Vue–Contrôleur) pour faciliter l’apprentissage, l’extension et la maintenance du code.
@@ -87,4 +87,31 @@ DB_HOST="localhost"
 DB_USERNAME = ""
 ; Mot de passe de la base de données
 DB_PASSWORD = ""
+```
+⚠️ Les identifiants par défaut de MAMP :
+Host : localhost | User : root | Password : root | Port MySQL : 8889 (si personnalisé)
+
+## 🚀 Lancer le projet
+
+### Option A — Avec MAMP
+
+1. Démarrez Apache + MySQL dans MAMP
+2. Ouvrez dans votre navigateur :
+
+``` bash
+http://localhost:8888/mini_mvc/public/
+```
+
+### Option B — Serveur PHP intégré
+
+Depuis la racine du projet :
+
+```bash
+php -S localhost:8000 -t public/
+```
+
+Puis ouvrez :
+
+```bash
+http://localhost:8000
 ```
