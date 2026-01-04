@@ -9,7 +9,6 @@
     color: #333;
 }
 
-/* Container principal */
 .auth-container {
     max-width: 500px;
     margin: 0 auto;
@@ -20,7 +19,6 @@
     box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
 
-/* Titres */
 .auth-container h2 {
     text-align: center;
     font-size: 36px;
@@ -36,7 +34,6 @@
     color: #000;
 }
 
-/* Formulaire */
 .auth-container form {
     display: flex;
     flex-direction: column;
@@ -60,7 +57,6 @@
     box-shadow: 0 0 0 2px rgba(0,0,0,0.1);
 }
 
-/* Boutons */
 .auth-container button {
     padding: 12px 0;
     background-color: #000;
@@ -77,14 +73,12 @@
     opacity: 0.8;
 }
 
-/* Séparateur */
 .auth-container hr {
     margin: 30px 0;
     border: none;
     border-top: 1px solid #ddd;
 }
 
-/* Footer */
 .auth-footer {
     margin-top: 50px;
     text-align: center;
@@ -104,7 +98,7 @@
 <div class="auth-container">
     <h2>Connexion / Inscription</h2>
 
-    <!-- CONNEXION -->
+    <!-- connexion -->
     <h3>Se connecter</h3>
     <form method="POST" action="/login">
         <input type="email" name="email" placeholder="Email" required>
@@ -114,7 +108,7 @@
 
     <hr>
 
-    <!-- INSCRIPTION -->
+    <!-- inscription -->
     <h3>S’inscrire</h3>
     <form method="POST" action="/register">
         <input type="text" name="nom" placeholder="Nom" required>

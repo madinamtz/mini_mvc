@@ -1,9 +1,9 @@
 <?php
 
-// Ici je définit le namespace ou il y aura ma class
 namespace Mini\Models;
 
 use Mini\Core\Database;
+
 use PDO;
 
 class User
@@ -14,7 +14,7 @@ class User
     private $password;
 
     // =====================
-    // Getters / Setters
+    // Getters & Setters
     // =====================
 
     public function getId()
@@ -27,7 +27,7 @@ class User
         $this->id = $id;
     }
 
-    public function getnom()
+    public function getNom()
     {
         return $this->nom;
     }
@@ -56,8 +56,6 @@ class User
     {
         $this->password = password_hash($password, PASSWORD_DEFAULT);
     }
-
-
 
     // =====================
     // Méthodes CRUD
@@ -110,14 +108,19 @@ class User
         $stmt = $pdo->prepare(
             "INSERT INTO user (nom, email, password) VALUES (?, ?, ?)"
         );
-        return $stmt->execute([
+        $success = $stmt->execute([
             $this->nom,
             $this->email,
             $this->password
         ]);
+
+        if ($success) {
+            // récupère l'ID généré et le stocke
+            $this->id = $pdo->lastInsertId();
+        }
+
+        return $success;
     }
-
-
 
     /**
      * Met à jour les informations d’un utilisateur existant
@@ -140,6 +143,4 @@ class User
         $stmt = $pdo->prepare("DELETE FROM user WHERE id = ?");
         return $stmt->execute([$this->id]);
     }
-    
-    
 }

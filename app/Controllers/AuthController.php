@@ -18,11 +18,7 @@ class AuthController
 
     public function register()
     {
-        if (
-            empty($_POST['nom']) ||
-            empty($_POST['email']) ||
-            empty($_POST['password'])
-        ) {
+        if (empty($_POST['nom']) || empty($_POST['email']) || empty($_POST['password'])) {
             die('Champs manquants');
         }
 
@@ -32,8 +28,10 @@ class AuthController
         $user->setPassword($_POST['password']);
         $user->save();
 
+        // stocke l'id, le nom et l'email dans la session
         $_SESSION['user'] = [
-            'nom' => $_POST['nom'],
+            'id'    => $user->getId(),
+            'nom'   => $_POST['nom'],
             'email' => $_POST['email']
         ];
 
@@ -78,5 +76,3 @@ class AuthController
         exit;
     }
 }
-
-?>

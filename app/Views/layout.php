@@ -264,7 +264,11 @@ $user_id = $_GET['user_id'] ?? 1; // Par défaut user_id = 1 pour la démo
             <!-- Compte -->
             <div class="dropdown">
                 <span class="header-link">
-                    compte
+                    <?php if (!empty($_SESSION['user'])): ?>
+                        Bonjour <?= htmlspecialchars($_SESSION['user']['nom']) ?>
+                    <?php else: ?>
+                        compte
+                    <?php endif; ?>
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
                         <path d="M8 8a3 3 0 1 0 0-6 3 
                         3 0 0 0 0 6m4 8c0 
@@ -274,11 +278,19 @@ $user_id = $_GET['user_id'] ?? 1; // Par défaut user_id = 1 pour la démo
                     </svg>
                 </span>
                 <ul class="dropdown-menu">
-                    <li><a href="/login">Connexion / Inscription</a></li>
-                    <li><a href="/orders?user_id=<?= $user_id ?>">Commandes</a></li>
-                    <li><a href="/logout">Déconnexion</a></li>
+                    <?php if (!empty($_SESSION['user'])): ?>
+                        <li>
+                            <a href="/orders?user_id=<?= !empty($_SESSION['user']['id']) ? htmlspecialchars($_SESSION['user']['id']) : 0 ?>">
+                                Commandes
+                            </a>
+                        </li>
+                        <li><a href="/logout">Déconnexion</a></li>
+                    <?php else: ?>
+                        <li><a href="/login">Connexion / Inscription</a></li>
+                    <?php endif; ?>
                 </ul>
             </div>
+
 
         </div>
     </div>
