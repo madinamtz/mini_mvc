@@ -9,7 +9,7 @@ Ce projet présente une structure claire de type MVC (Modèle–Vue–Contrôleu
 - Routing de base
 - Connexion utilisateur
 - Pages produits
-- Structure prête à être étendue (ajout panier, administration…)
+- Structure prête à être étendue (gestion du stock, administration…)
 - Intégration facile avec une base de données MySQL
 
 ## 🖥️ Démonstration
@@ -38,3 +38,53 @@ Avant de commencer, assurez‑vous d’avoir :
 ```bash
 git clone https://github.com/madinamtz/mini_mvc.git
 cd mini_mvc
+```
+
+### 2. Placer le projet dans MAMP
+Copiez le projet dans le dossier htdocs de MAMP, par exemple :
+
+```bash
+/Applications/MAMP/htdocs/mini_mvc
+```
+
+## 🗄️ Configuration de la base de données
+
+### 1. Ouvrir phpMyAdmin
+
+Démarrez MAMP, puis ouvrez phpMyAdmin dans votre navigateur :
+
+```bash
+http://localhost:8888/phpmyadmin
+```
+
+### 2. Créer la base de données
+
+Créez une base de données nommée par exemple :
+
+```bash
+fallenangel
+```
+
+### 3. Importer le schéma SQL
+
+Si un fichier SQL est fourni, utilisez l’onglet Importer pour l’ajouter.
+Sinon, créez les tables via phpMyAdmin en vous basant sur vos modèles dans app/models/.
+
+### 4. Vérifier la configuration PHP
+
+Ouvrez le fichier app/config/config.php et configurez les identifiants :
+
+``` bash
+; Description de la configuration (commentaire)
+; Exemple de configuration locale
+; Chaîne de connexion PDO (hôte, base, encodage)
+; Nom d'utilisateur de la base de données
+
+DB_NAME = ""
+
+DB_HOST="localhost"
+
+DB_USERNAME = ""
+; Mot de passe de la base de données
+DB_PASSWORD = ""
+```
