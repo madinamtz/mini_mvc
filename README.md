@@ -120,18 +120,10 @@ http://localhost:8000
 
 Pour tester le site, vous pouvez utiliser ces comptes :
 
-### 🛠 Admin
-
-Email : admin@test.com
-Mot de passe : admin123
-
-### 👤 Utilisateur simple
-
-Email : user@test.com
-Mot de passe : user123
+| Email | Mot de passe | Rôle |
+|:--------------|:-------------|:--------------|
+| admin@test.com | admin123 | Administrateur |
+|:--------------|:-------------|:--------------|
+| user@test.com | user123 | Utilisateur |
 
 - Si ces comptes n’existent pas, ajoutez-les via phpMyAdmin ou SQL.
-
-| Headline 1 in the tablehead | Headline 2 in the tablehead | Headline 3 in the tablehead |
-|:--------------|:-------------:|--------------:|
-| text-align left | text-align center | text-align right |
