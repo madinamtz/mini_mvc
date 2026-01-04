@@ -131,3 +131,7 @@ Email : user@test.com
 Mot de passe : user123
 
 - Si ces comptes n’existent pas, ajoutez-les via phpMyAdmin ou SQL.
+
+| Headline 1 in the tablehead | Headline 2 in the tablehead | Headline 3 in the tablehead |
+|:--------------|:-------------:|--------------:|
+| text-align left | text-align center | text-align right |
