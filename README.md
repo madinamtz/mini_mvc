@@ -144,5 +144,7 @@ VALUES ('jean@test.com', 'jean123'),
 
 ## 🗃️ Structure de la Base de Données
 
+# Tables principales 
+
 ```bash
 ```
